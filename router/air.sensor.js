@@ -7,19 +7,21 @@ const startupTime = Date.now();
 const filter = new KalmanFilter();
 
 router.get('/', async (req, res) => {
+    const value = calculate.randomBetween(30, 70, filter);
     res.send({
-        unit: 'celsius',
-        value: calculate.randomBetween(20, 24, filter),
+        type: 'pm2.5',
+        airQualityLevel: calculate.airQuality(value),
+        value: value,
         time: Date.now()
     });
 });
 
 router.get('/about', async (req, res) => {
     res.send({
-        type: 'temperature',
+        type: 'air',
         ip: '127.0.0.1',
-        port: 3010,
-        mac: 'b8:27:eb:25:5c:a1',
+        port: 3030,
+        mac: 'b8:27:eb:25:5c:a3',
         uptime: (Date.now() - startupTime)
     });
 });

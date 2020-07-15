@@ -8,18 +8,18 @@ const filter = new KalmanFilter();
 
 router.get('/', async (req, res) => {
     res.send({
-        unit: 'celsius',
-        value: calculate.randomBetween(20, 24, filter),
+        color: calculate.randomColor(),
+        value: calculate.randomIntegerBetweenLevels(0, 10),
         time: Date.now()
     });
 });
 
 router.get('/about', async (req, res) => {
     res.send({
-        type: 'temperature',
+        type: 'light',
         ip: '127.0.0.1',
-        port: 3010,
-        mac: 'b8:27:eb:25:5c:a1',
+        port: 3040,
+        mac: 'b8:27:eb:25:5c:a4',
         uptime: (Date.now() - startupTime)
     });
 });
