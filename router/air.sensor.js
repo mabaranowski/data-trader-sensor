@@ -3,7 +3,7 @@ const router = express.Router();
 const calculate = require('../util/calculate');
 const KalmanFilter = require('kalmanjs');
 
-const startupTime = Date.now();
+const startupTime = new Date();
 const filter = new KalmanFilter();
 
 router.get('/', async (req, res) => {
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
         type: 'pm2.5',
         airQualityLevel: calculate.airQuality(value),
         value: value,
-        time: Date.now()
+        time: new Date()
     });
 });
 
@@ -22,7 +22,7 @@ router.get('/about', async (req, res) => {
         ip: '127.0.0.1',
         port: 3030,
         mac: 'b8:27:eb:25:5c:a3',
-        uptime: (Date.now() - startupTime)
+        uptime: (new Date() - startupTime)
     });
 });
 

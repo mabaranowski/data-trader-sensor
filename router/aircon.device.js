@@ -3,7 +3,7 @@ const router = express.Router();
 const calculate = require('../util/calculate');
 const KalmanFilter = require('kalmanjs');
 
-const startupTime = Date.now();
+const startupTime = new Date();
 const filter = new KalmanFilter();
 
 router.get('/', async (req, res) => {
@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
         desc: 'airflow',
         mode: calculate.acMode(),
         value: calculate.randomIntegerBetween(1, 10, filter),
-        time: Date.now()
+        time: new Date()
     });
 });
 
@@ -21,7 +21,7 @@ router.get('/about', async (req, res) => {
         ip: '127.0.0.1',
         port: 3070,
         mac: 'b8:27:eb:25:5c:b3',
-        uptime: (Date.now() - startupTime)
+        uptime: (new Date() - startupTime)
     });
 });
 
