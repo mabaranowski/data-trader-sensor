@@ -30,16 +30,16 @@ exports.randomColor = () => {
 };
 
 exports.airQuality = (value) => {
-    if(value <= 35) {
+    if (value <= 35) {
         return 'Good';
     }
-    if(value > 35 && value <= 55) {
+    if (value > 35 && value <= 55) {
         return 'Moderate';
     }
-    if(value > 55 && value <= 75) {
+    if (value > 55 && value <= 75) {
         return 'Sufficient';
     }
-    if(value > 75 && value <= 110) {
+    if (value > 75 && value <= 110) {
         return 'Bad';
     }
     return 'Out of scale';
@@ -48,17 +48,17 @@ exports.airQuality = (value) => {
 exports.randomIntegerBetweenLevels = (min, max) => {
     const random = Math.random() * (max - min) + min;
     const level = this.convertPrecentage(random, max);
-    
-    if(level <= 20) {
+
+    if (level <= 20) {
         return 0;
     }
-    if(level > 20 && level <= 40) {
+    if (level > 20 && level <= 40) {
         return 30;
     }
-    if(level > 40 && level <= 60) {
+    if (level > 40 && level <= 60) {
         return 50;
     }
-    if(level > 60 && level <= 80) {
+    if (level > 60 && level <= 80) {
         return 70;
     }
     return 100;
@@ -66,14 +66,14 @@ exports.randomIntegerBetweenLevels = (min, max) => {
 
 exports.acMode = () => {
     const result = Math.random() * 4;
-    
-    if(result <= 1) {
+
+    if (result <= 1) {
         return 'Auto';
     }
-    if(result > 1 && result <= 2) {
+    if (result > 1 && result <= 2) {
         return 'Cooling';
     }
-    if(result > 2 && result <= 3) {
+    if (result > 2 && result <= 3) {
         return 'Heating';
     }
     return 'Manual';

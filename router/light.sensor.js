@@ -1,10 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const calculate = require('../util/calculate');
-const KalmanFilter = require('kalmanjs');
 
 const startupTime = new Date();
-const filter = new KalmanFilter();
 
 router.get('/', async (req, res) => {
     res.send({
