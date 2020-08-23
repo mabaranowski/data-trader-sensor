@@ -7,12 +7,17 @@ const startupTime = new Date();
 const filter = new KalmanFilter();
 
 router.get('/', async (req, res) => {
-    res.send({
-        desc: 'airflow',
-        mode: calculate.acMode(),
-        value: calculate.randomIntegerBetween(1, 10, filter),
-        time: new Date()
-    });
+    res.set('Content-Type', 'text/html');
+    res.send(`
+    Unit is now ${calculate.acMode()}.
+    The power is set to ${calculate.randomIntegerBetween(1, 10, filter)}.
+    Entry time ${new Date().toISOString()}`);
+    // res.send({
+    //     desc: 'airflow',
+    //     mode: calculate.acMode(),
+    //     value: calculate.randomIntegerBetween(1, 10, filter),
+    //     time: new Date()
+    // });
 });
 
 router.get('/about', async (req, res) => {
