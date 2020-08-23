@@ -9,8 +9,10 @@ const filter = new KalmanFilter();
 router.get('/', async (req, res) => {
     res.send({
         unit: 'percent',
-        value: calculate.randomBetween(80, 88, filter),
-        time: new Date()
+        reading: {
+            value: calculate.randomBetween(80, 88, filter),
+            time: new Date()
+        }
     });
 });
 
